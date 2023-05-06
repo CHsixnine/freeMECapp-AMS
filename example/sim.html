@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="150">
+    <p>你的浏览器不支持Canvas</p>
+</canvas>
+<br>
+<p id='p1'></p>
+<script type="text/javascript">
+"use strict";
+var canvas=document.getElementById('myCanvas');
+if (canvas.getContext) {
+    var k=3;
+    var d=30;
+    var w=Math.sqrt(3)*d;
+    var h=3/2*d;
+    canvas.width=2*k*w;
+    canvas.height=2*k*h+h/2;
+    var o=[canvas.width/2,canvas.height/2];
+    document.getElementById('p1').innerHTML='画布宽'+canvas.width+',高'+canvas.height;
+    var ctx=canvas.getContext('2d');
+    ctx.fillStyle='AntiqueWhite';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle='blue';
+    ctx.beginPath();
+    var vs=[[0,d],[-w/2,d/2],[-w/2,-d/2],
+            [0,-d],[w/2,-d/2],[w/2,d/2]];
+    function one(xo,yo){
+        ctx.moveTo(xo+vs[5][0],yo+vs[5][1]);
+        for(var i=0;i<vs.length;i++){
+            ctx.lineTo(xo+vs[i][0],yo+vs[i][1]);
+        }
+    }
+    for(var i=-k+1;i<k;i++){
+        for(var j=0;j<2*k-1-Math.abs(i);j++){
+            one(o[0]+(-k+1+Math.abs(i)/2+j)*w,o[1]+h*i);
+        }
+    }
+    ctx.stroke();
+}
+else{
+    console.log('你的浏览器不支持Canvas');
+}
+</script>
+
+</body>
+</html>
