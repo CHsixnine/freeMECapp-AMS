@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Registrations import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('queries/adjacent_app_instances', views.adjacent_app_instances),
+    path('app_mobility_services', views.app_mobility_services),
+    path('app_mobility_services/<str:appMobilityServiceId>', views.app_mobility_services_with_id),
+    path('app_mobility_services/<str:appMobilityServiceId>/deregister_task', views.app_mobility_services_with_deregister),
+    path('subscriptions', views.subscriptions),
+    path('subscriptions/<str:subscriptionId>', views.subscriptions_with_id),
+    path('uri_provided_by_subscriber', views.uri_provided_by_subscriber)
 ]
