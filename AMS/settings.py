@@ -25,6 +25,10 @@ SECRET_KEY = 'django-insecure-g+=lt_v_l&(%93qgb$^xriirpkwcwdd@&i)@6-de%yl=1uk5%@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+MEP_HOST = "10.0.0.218:8888"
+APPINSTANCE_ID = "ams045903857--10.0.0.218:34345"
+
 ALLOWED_HOSTS = []
 
 
