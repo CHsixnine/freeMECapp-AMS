@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Registrations import views
+from Subscription.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('queries/adjacent_app_instances', views.adjacent_app_instances),
-    path('app_mobility_services', views.app_mobility_services),
-    path('app_mobility_services/<str:appMobilityServiceId>', views.app_mobility_services_with_id),
-    path('app_mobility_services/<str:appMobilityServiceId>/deregister_task', views.app_mobility_services_with_deregister),
-    path('subscriptions', views.subscriptions),
-    path('subscriptions/<str:subscriptionId>', views.subscriptions_with_id),
-    path('uri_provided_by_subscriber', views.uri_provided_by_subscriber)
+    path('amsi/v1/admin/', admin.site.urls),
+    path('amsi/v1/queries/adjacent_app_instances', views.adjacent_app_instances),
+    path('amsi/v1/app_mobility_services', views.app_mobility_services),
+    path('amsi/v1/app_mobility_services/<str:appMobilityServiceId>', views.app_mobility_services_with_id),
+    path('amsi/v1/app_mobility_services/<str:appMobilityServiceId>/deregister_task', views.app_mobility_services_with_deregister),
+    path('amsi/v1/subscriptions', views.subscriptions),
+    path('amsi/v1/subscriptions/<str:subscriptionId>', views.subscriptions_with_id),
+    path('amsi/v1/uri_provided_by_subscriber', views.uri_provided_by_subscriber),
+    path('amsi/v1/evt_sink', evt_sink)
 ]

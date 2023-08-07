@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-g+=lt_v_l&(%93qgb$^xriirpkwcwdd@&i)@6-de%yl=1uk5%@
 DEBUG = True
 
 
-MEP_HOST = "10.0.0.218:8888"
+MEP_HOST = "10.0.0.218:30666"
 APPINSTANCE_ID = "ams045903857--10.0.0.218:34345"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["10.0.0.218"]
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Registrations'
+    'Registrations',
+    'Subscription'
 ]
 
 MIDDLEWARE = [
